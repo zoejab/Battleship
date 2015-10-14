@@ -1,0 +1,67 @@
+body {
+  background-color: black;
+  width: 1200px;
+}
+
+
+#container {
+  /*margin: 0 auto;*/
+  /*min-width: 30%;*/
+  /*how do i make it so it stays 50% no matter the size of hte screen*/
+    width: 50%;
+    float: left;
+}
+
+#leftpanel {
+  width:25%;
+  float: left;
+  text-align: right;
+  margin-right: 50px;
+}
+
+/*how do i get the hits left to go up?*/
+#rightpanel {
+  width: 25%;
+  float: right;
+  text-align: left;
+  /*margin-left: 50px;*/
+}
+
+.row {
+  /*width: 50%;*/
+  /*height: 50%;*/
+  float:left;
+  clear: both;
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  background: #black;
+  box-sizing: border-box;
+  border: 1px solid #9cfe46;
+  float: left;
+}
+
+.boatcell {
+  width: 20px;
+  height: 20px;
+  background: #black;
+  box-sizing: border-box;
+  border: 1px solid #9cfe46;
+  float: right;
+}
+
+h1 {
+  color: #9cfe46;
+  text-align: center;
+
+}
+
+h3 {
+  color: #9cfe46;
+}
+
+p {
+  color: #9cfe46;
+}
