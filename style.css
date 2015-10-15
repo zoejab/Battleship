@@ -17,6 +17,7 @@ body {
   float: left;
   text-align: right;
   margin-right: 50px;
+  margin-top: 75px;
 }
 
 /*how do i get the hits left to go up?*/
@@ -53,15 +54,21 @@ body {
 }
 
 h1 {
-  color: #9cfe46;
+  color: white;
   text-align: center;
+  font-family: 'Orbitron';
+  font-size: 48px;
+  margin: 0 auto;
+  padding-top: 20px;
 
 }
 
 h3 {
-  color: #9cfe46;
+  color: white;
+  font-family: 'Orbitron';
 }
 
 p {
   color: #9cfe46;
+  font-family: 'Orbitron';
 }
