@@ -10,6 +10,9 @@ body {
   /*how do i make it so it stays 50% no matter the size of hte screen*/
     width: 50%;
     float: left;
+    background-image: url('http://i62.tinypic.com/11wc70m.png');
+    background-repeat: no-repeat;
+    background-position:  29%;
 }
 
 #leftpanel {
@@ -22,17 +25,14 @@ body {
 
 /*how do i get the hits left to go up?*/
 #rightpanel {
+  position: absolute;
+  right: 0px;
+  margin-top: 75px;
   width: 25%;
-  float: right;
-  text-align: left;
-  /*margin-left: 50px;*/
 }
 
 .row {
-  /*width: 50%;*/
-  /*height: 50%;*/
   float:left;
-  clear: both;
 }
 
 .cell {
@@ -42,6 +42,7 @@ body {
   box-sizing: border-box;
   border: 1px solid #9cfe46;
   float: left;
+  color: white;
 }
 
 .boatcell {
@@ -69,6 +70,6 @@ h3 {
 }
 
 p {
-  color: #9cfe46;
+  color: white;
   font-family: 'Orbitron';
 }
