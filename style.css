@@ -69,7 +69,13 @@ h3 {
   font-family: 'Orbitron';
 }
 
-p {
+#hitsleft {
   color: white;
   font-family: 'Orbitron';
+  margin-left: -50px;
+}
+
+img {
+  width: 50px;
+  height: 50px;
 }
