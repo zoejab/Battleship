@@ -3,6 +3,11 @@ console.log('battleship loaded');
 var clickEvent = function(e){
     //send throuhg makePlay
     game.board.makePlay(e.target);
+
+    // var checkWinner = game.board.checkWin();
+    // if(checkWinner === true) {
+    //   alert('sunk');
+    // }
 };
 
 //an array of objects created by the boat constructor that has a location property and in that location propety is an array of location numbers
@@ -11,9 +16,20 @@ var Boats = function(name, location) {
   this.name = name;
   this.location = location;
   this.sunk = false;
-  //this.checkSunk = function() {
+
+  this.checkSunk = function() {
+    for (var i = 0; i < location.length; i++) {
+      if (location[i].hit !== true) {
+        return false;
+      }
+      this.sunk = true;
+      return true;
+    }
+
+
+  };
   //   //if all locations are hit then turn sunk to true;
-  // };
+  //
 };
 
 //created boat objects for each ship
@@ -31,15 +47,13 @@ var Board = function() {
   this.setUp = function() {
     for (var i = 0; i < boatArray.length; i++) {
       for (var j = 0; j < boatArray[i].location.length; j++) {
-        console.log(i);
-        console.log(j);
         var name = boatArray[i].name;
         var boatLocation = boatArray[i].location[j].loc;
         var toString = boatLocation.toString();
         var divGotten = document.getElementById('cell' + boatLocation);
-        console.log(boatLocation);
         divGotten.setAttribute('data-value', name);
         divGotten.setAttribute('class', 'cell filled');
+
       }
     }
 
@@ -55,23 +69,14 @@ var Board = function() {
     if (cellClicked.getAttribute('class') === 'cell filled') {
       cellClicked.innerHTML = "<img src='explode.png'>";
       cellClicked.style.backgroundColor = 'blue';
-      // cellClicked.setAttribute('data-value', 'hit');
+      cellClicked.setAttribute('class', 'cell filled hit');
       this.guesses -= 1;
 
-      //sets hit on location equal to true
-      for (var i = 0; i < boatArray.length; i++) {
-        for (var j = 0; j < boatArray[i].location.length; j++) {
-          boatArray[i].location[j].hit = true;
-        }}
-
-      //inner html needs to be equal to 'hits' + this.hitsLeft
       var hitsLeft = document.getElementById('hitsleft');
       hitsLeft.innerHTML = 'hits left: ' + this.guesses;
       cellClicked.removeEventListener('click', clickEvent);
       console.log('hit'); }
-
-    //puts blue background when clicked
-      else {
+     else {
       cellClicked.style.backgroundColor = 'blue';
       this.guesses -= 1;
       //inner html needs to be equal to 'hits' + this.hitsLeft
@@ -79,13 +84,90 @@ var Board = function() {
       hitsLeft2.innerHTML = 'hits left: ' + this.guesses;
       cellClicked.removeEventListener('click', clickEvent);
       console.log('missed');}
+
+
+      // sets hit on location equal to true
+      if (cellClicked.getAttribute('class') === 'cell filled hit') {
+      for (var i = 0; i < boatArray.length; i++) {
+        for (var j = 0; j < boatArray[i].location.length; j++) {
+
+            boatArray[i].location[j].hit = true;
+        }}
+      }
   };
+      //inner html needs to be equal to 'hits' + this.hitsLeft
+
+
+    //puts blue background when clicked
+
+
+  this.isSunk = function() {
+    var hits = 0;
+
+    for (var i = 0; i < boatArray.length; i++) {
+      for (var j = 0; j < boatArray[i].location.length; j++) {
+        var boatHitQuestion = boatArray[i].location[j].hit;
+        if (boatArray[i].location[j].hit) {
+          hits += 1;
+          if(hits === boatArray[i].location.length) {
+            alert('you sunk the' + boatArray[i]);
+          }
+          // console.log(boatArray[i].location[j].hit)
+          return true;
+        }
+         return false;
+      }}
   };
 
   this.checkWin = function() {
-    //how does this check per boat and how does this check for the whole board
-  };
 
+
+
+
+    //if datavalue is submarine and hit values length is equal to the number of boats then set that boat's image to red.
+    // var array = document.getElementsByClassName('cell filled');
+    // for (var i = 0; i < array.length; i++) {
+    //   var value = array[i].getAttribute('data-value');
+    //   var hitQuest = array[i].getAttribute('hit');
+    // }
+
+    //
+    // var sub = document.querySelectorAll('#Patrol Boat hit');
+    // //for submarine
+    // for (var i = 0; i < sub.length; i++ ) {
+    // var dataval = sub[i].getAttribute('data-value');
+    // var hit = sub[i].querySelectorAll('hit');
+    // console.log(hit);
+    //
+    // if ((dataval === 'Submarine') && (hit.length === 3))
+    //   { alert('you sunk the submarine');
+    //     }
+    // }
+
+
+
+    //how does this check per boat and how does this check for the whole board
+    // for (var i = 0; i < boatArray.length; i++) {
+    //   for (var j = 0; j < boatArray[i].location.length; j++) {
+    //     console.log(boatArray);
+    //     var name2 = boatArray[i].name;
+    //     if(boatArray[i].location[j].hit) {
+    //       return false;
+    //     }
+    //     return true;
+    //   }
+
+    // var array = [];
+    //   for (var i = 0; i < cells.length; i++) {
+    //     array.push(document.querySelectorAll('.cell')[i].getAttribute('data-value'));
+    //   }
+
+  };
+};
+
+//////////////////////
+//////GAME OBJECT/////
+//////////////////////
 var game = {
   board: null,
 
@@ -113,7 +195,7 @@ var game = {
 
   overMessage: function() {
 
-  }
+  },
 
 };
 

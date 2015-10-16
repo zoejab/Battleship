@@ -82,23 +82,23 @@ var Board = function() {
   };
   this.checkWin = function() {
 
-    // for (var i in boatArray) {
-    //   for (var j in boatArray[i]) {
-    //     if(boatArray[i].location[j].hit) {
-    //       return false;
-    //     }
-    //   }
-    //   return true;
-    // }
+    for (var i in boatArray) {
+      for (var j in boatArray[i]) {
+        if(boatArray[i].location[j].hit) {
+          return false;
+        }
+      }
+      return true;
+    }
 
 
     //how does this check per boat and how does this check for the whole board
     // for (var i = 0; i < boatArray.length; i++) {
     //   for (var j = 0; j < boatArray[i].location.length; j++) {
     //     if (boatArray[i].location[j].hit === true) {
-    //
-    //     }
-    //   }}
+
+        }
+      }}
   };
 };
 
