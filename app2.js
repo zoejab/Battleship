@@ -1,12 +1,8 @@
 console.log('battleship loaded');
-$(document).ready(function(){
-
-
 
 var clickEvent = function(e){
     //send throuhg makePlay
     game.board.makePlay(e.target);
-    // console.log(e.target);
 };
 
 //an array of objects created by the boat constructor that has a location property and in that location propety is an array of location numbers
@@ -15,19 +11,19 @@ var Boats = function(name, location) {
   this.name = name;
   this.location = location;
   this.sunk = false;
-  this.hit = false;
   //this.checkSunk = function() {
   //   //if all locations are hit then turn sunk to true;
   // };
 };
 
 //created boat objects for each ship
- var aircraft = new Boats('Aircraft Carrier', [{loc: 75, hit: false},{loc: 76, hit: false},{loc: 77, hit: false},{loc: 78, hit: false},{loc: 79, hit: false}]);
- var battleship = new Boats('Battleship', [{loc: 62, hit: false},{loc: 72, hit: false},{loc: 82, hit: false},{loc: 92, hit: false}]);
- var submarine = new Boats('Submarine', [{loc: 11, hit: false},{loc: 12, hit: false},{loc: 13, hit: false}]);
- var patrol = new Boats('Patrol Boat', [{loc: 30, hit: false},{loc: 40, hit: false}]);
- //push into boat array to make more random ones later to have multiple boards
- boatArray = [aircraft, battleship, submarine, patrol];
+var aircraft = new Boats('Aircraft Carrier', [{loc: 75, hit: false},{loc: 76, hit: false},{loc: 77, hit: false},{loc: 78, hit: false},{loc: 79, hit: false}]);
+var battleship = new Boats('Battleship', [{loc: 62, hit: false},{loc: 72, hit: false},{loc: 82, hit: false},{loc: 92, hit: false}]);
+var submarine = new Boats('Submarine', [{loc: 11, hit: false},{loc: 12, hit: false},{loc: 13, hit: false}]);
+var patrol = new Boats('Patrol Boat', [{loc: 30, hit: false},{loc: 40, hit: false}]);
+//push into boat array to make more random ones later to have multiple boards
+boatArray = [aircraft, battleship, submarine, patrol];
+
 
 var Board = function() {
   this.guesses = 0;
@@ -52,6 +48,9 @@ var Board = function() {
   };
 
   this.makePlay = function(cellClicked) {
+    //if data value === filled then innerHTML = X;
+    // for (var i = 0; i < cells.length; i++)
+
     //puts explosion image when clicked
     if (cellClicked.getAttribute('class') === 'cell filled') {
       cellClicked.innerHTML = "<img src='explode.png'>";
@@ -59,6 +58,7 @@ var Board = function() {
       // cellClicked.setAttribute('data-value', 'hit');
       this.guesses -= 1;
 
+      //sets hit on location equal to true
       for (var i = 0; i < boatArray.length; i++) {
         for (var j = 0; j < boatArray[i].location.length; j++) {
           boatArray[i].location[j].hit = true;
@@ -80,27 +80,11 @@ var Board = function() {
       cellClicked.removeEventListener('click', clickEvent);
       console.log('missed');}
   };
-  this.checkWin = function() {
-
-    // for (var i in boatArray) {
-    //   for (var j in boatArray[i]) {
-    //     if(boatArray[i].location[j].hit) {
-    //       return false;
-    //     }
-    //   }
-    //   return true;
-    // }
-
-
-    //how does this check per boat and how does this check for the whole board
-    // for (var i = 0; i < boatArray.length; i++) {
-    //   for (var j = 0; j < boatArray[i].location.length; j++) {
-    //     if (boatArray[i].location[j].hit === true) {
-    //
-    //     }
-    //   }}
   };
-};
+
+  this.checkWin = function() {
+    //how does this check per boat and how does this check for the whole board
+  };
 
 var game = {
   board: null,
@@ -138,7 +122,3 @@ window.onload = function() {
   game.start();
   game.play();
 };
-
-//inner html needs to be equal to 'hits' + this.hitsLeft
-
-});
