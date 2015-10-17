@@ -1,5 +1,5 @@
 console.log('battleship loaded');
-$(document).ready(function(){
+$(document).ready(function(){});
 
 
 

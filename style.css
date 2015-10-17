@@ -3,11 +3,7 @@ body {
   width: 1200px;
 }
 
-
-#container {
-  /*margin: 0 auto;*/
-  /*min-width: 30%;*/
-  /*how do i make it so it stays 50% no matter the size of hte screen*/
+#center {
     width: 50%;
     float: left;
     background-image: url('http://i62.tinypic.com/11wc70m.png');
@@ -23,13 +19,16 @@ body {
   margin-top: 75px;
 }
 
+#hitsleft {
+  margin-top: 75px;
+}
 /*how do i get the hits left to go up?*/
-#rightpanel {
+/*#rightpanel {
   position: absolute;
   right: 0px;
   margin-top: 75px;
   width: 25%;
-}
+}*/
 
 .row {
   float:left;
