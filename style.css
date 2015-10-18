@@ -1,26 +1,31 @@
 body {
   background-color: black;
-  width: 1200px;
+  width: 1300px;
+  font-family: 'Orbitron';
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #center {
-    width: 50%;
+    width: 43%;
     float: left;
     background-image: url('http://i62.tinypic.com/11wc70m.png');
     background-repeat: no-repeat;
-    background-position:  29%;
+    background-position:  36%;
+    position: relative;
 }
 
 #leftpanel {
-  width:25%;
+  width:27.5%;
   float: left;
   text-align: right;
   margin-right: 50px;
-  margin-top: 75px;
+  margin-top: 50px;
 }
 
-#hitsleft {
-  margin-top: 75px;
+#rightpanel {
+  margin-top: 95px;
 }
 /*how do i get the hits left to go up?*/
 /*#rightpanel {
@@ -44,6 +49,11 @@ body {
   color: white;
 }
 
+.leftrow {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
 .boatcell {
   width: 20px;
   height: 20px;
@@ -51,30 +61,68 @@ body {
   box-sizing: border-box;
   border: 1px solid #9cfe46;
   float: right;
+  margin-bottom: 10px;
 }
 
 h1 {
   color: white;
   text-align: center;
-  font-family: 'Orbitron';
   font-size: 48px;
   margin: 0 auto;
   padding-top: 20px;
+  padding-bottom: 30px;
 
 }
 
 h3 {
   color: white;
-  font-family: 'Orbitron';
+  margin-top: 36px;
 }
 
 #hitsleft {
   color: white;
-  font-family: 'Orbitron';
-  margin-left: -50px;
+  /*margin-left: -50px;*/
 }
 
-img {
+#explode {
   width: 50px;
   height: 50px;
 }
+
+#lose, #win {
+  position: absolute;
+  width: 390px;
+  text-align: center;
+  box-sizing:border-box;
+  border: solid 3px #830707;
+  border-radius: 6px;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+  background-color: red;
+  padding: 15px;
+  font-size: 53px;
+  margin: 155px 55px 150px 55px;
+}
+
+
+.button {
+  position: absolute;
+  width: 120px;
+  text-align: center;
+	background-color:white;
+	border-radius:6px;
+	border:2px solid grey;
+	color:black;
+	font-size:18px;
+	padding:10px 6px;
+	text-decoration:none;
+  margin: 253px 150px 150px -318px;
+}
+
+.button:hover {
+  background-color: grey;
+}
+
+/*#boat {
+  width: 50%;
+}*/

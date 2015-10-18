@@ -1,4 +1,5 @@
 console.log('battleship loaded');
+$(document).ready(function(){
 
 var clickEvent = function(e) {
     //send throuhg makePlay
@@ -97,7 +98,7 @@ var Board = function() {
 
 			//puts explosion image when clicked
 			if(cellClicked.getAttribute('class') === 'cell filled') {
-				cellClicked.innerHTML = "<img src='explode.png'>";
+				cellClicked.innerHTML = "<img src='images/explode.png' id='explode'>";
 				cellClicked.style.backgroundColor = 'blue';
 				cellClicked.setAttribute('class', 'cell filled hit');
 			}
@@ -148,20 +149,35 @@ isOver: function() {
   for (var i = 0; i < boatArray.length; i++) {
     if(boatArray[i].sunk !== true) {
       return false;
-    } this.board.gameOver = true;
     }
-
+    }
+    this.board.gameOver = true;
 },
 
 overMessage: function() {
   //if you run out of hits then alerts you game over.
   if (this.board.guesses === 0) {
-    alert('You ran out of hits. Game over!');
-  }
+
+    $('#center').append($("<p id='lose'> You Lose! </p>"));
+    //play again button
+    $('#center').append($("<a> Play Again </a>").addClass('button').attr('href', '#'));
+    var buttonLose = $('.button').click(function() {
+
+      window.location.reload();
+      });
+    }
   //loop over boats array - if all sunk = true then game ends and you win.
   if(this.board.gameOver === true) {
-    alert('You hit all the boats. You win!');
-  }
+    var winBanner = $('#center').append($("<p id='win'> You Win! </p>"));
+
+    //play again button
+    $('#center').append($("<a> Play Again </a>").addClass('button').attr('href', '#'));
+    var buttonWin = $('.button').click(function() {
+
+      window.location.reload();
+      });
+
+}
 },
 
 };
@@ -171,3 +187,5 @@ window.onload = function() {
     game.start();
     game.play();
 };
+
+});
