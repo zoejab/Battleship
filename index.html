@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Battleship</title>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+   <!-- <img src='boat.png' id='boat'> -->
+    <div id='title'>
+      <h1> Battleship </h1>
+    </div>
+
+
+    <div id='leftpanel'>
+      <h3>Aircraft Carrier </h3>
+      <div class='leftrow'>
+        <div class='boatcell aircraft'> </div>
+        <div class='boatcell aircraft'> </div>
+        <div class='boatcell aircraft'> </div>
+        <div class='boatcell aircraft'> </div>
+        <div class='boatcell aircraft'> </div>
+      </div>
+        <br>
+
+      <h3> Battleship </h3>
+      <div class='leftrow'>
+        <div class='boatcell battleship'> </div>
+        <div class='boatcell battleship'> </div>
+        <div class='boatcell battleship'> </div>
+        <div class='boatcell battleship'> </div>
+        <br>
+      </div>
+
+      <h3>Submarine</h3>
+      <div class='leftrow'>
+        <div class='boatcell submarine'> </div>
+        <div class='boatcell submarine'> </div>
+        <div class='boatcell submarine'> </div>
+        <br>
+          </div>
+
+
+      <h3>Patrol Boat</h3>
+      <div class='leftrow'>
+        <div class='boatcell patrol'> </div>
+        <div class='boatcell patrol'> </div>
+
+        <br>
+          </div>
+
+  </div>
+
+
+    <div id='center'>
+      <!-- <p id='lose'> You Lose! </p>
+      <p id='win'> You Win! </p>
+      <a href="#" class="button"> Play Again </a> -->
+
+    <div class="row">
+      <div class="cell" id="cell0"></div>
+      <div class="cell" id="cell1"></div>
+      <div class="cell" id="cell2"></div>
+      <div class="cell" id="cell3"></div>
+      <div class="cell" id="cell4"></div>
+      <div class="cell" id="cell5"></div>
+      <div class="cell" id="cell6"></div>
+      <div class="cell" id="cell7"></div>
+      <div class="cell" id="cell8"></div>
+      <div class="cell" id="cell9"></div>
+    </div>
+    <div class="row">
+      <div class="cell" id="cell10"></div>
+      <div class="cell" id="cell11"></div>
+      <div class="cell" id="cell12"></div>
+      <div class="cell" id="cell13"></div>
+      <div class="cell" id="cell14"></div>
+      <div class="cell" id="cell15"></div>
+      <div class="cell" id="cell16"></div>
+      <div class="cell" id="cell17"></div>
+      <div class="cell" id="cell18"></div>
+      <div class="cell" id="cell19"></div>
+    </div>
+    <div class="row">
+      <div class="cell" id="cell20"></div>
+      <div class="cell" id="cell21"></div>
+      <div class="cell" id="cell22"></div>
+      <div class="cell" id="cell23"></div>
+      <div class="cell" id="cell24"></div>
+      <div class="cell" id="cell25"></div>
+      <div class="cell" id="cell26"></div>
+      <div class="cell" id="cell27"></div>
+      <div class="cell" id="cell28"></div>
+      <div class="cell" id="cell29"></div>
+    </div>
+    <div class="row">
+      <div class="cell" id="cell30"></div>
+      <div class="cell" id="cell31"></div>
+      <div class="cell" id="cell32"></div>
+      <div class="cell" id="cell33"></div>
+      <div class="cell" id="cell34"></div>
+      <div class="cell" id="cell35"></div>
+      <div class="cell" id="cell36"></div>
+      <div class="cell" id="cell37"></div>
+      <div class="cell" id="cell38"></div>
+      <div class="cell" id="cell39"></div>
+    </div>
+    <div class="row">
+      <div class="cell" id="cell40"></div>
+      <div class="cell" id="cell41"></div>
+      <div class="cell" id="cell42"></div>
+      <div class="cell" id="cell43"></div>
+      <div class="cell" id="cell44"></div>
+      <div class="cell" id="cell45"></div>
+      <div class="cell" id="cell46"></div>
+      <div class="cell" id="cell47"></div>
+      <div class="cell" id="cell48"></div>
+      <div class="cell" id="cell49"></div>
+    </div>
+    <div class="row">
+      <div class="cell" id="cell50"></div>
+      <div class="cell" id="cell51"></div>
+      <div class="cell" id="cell52"></div>
+      <div class="cell" id="cell53"></div>
+      <div class="cell" id="cell54"></div>
+      <div class="cell" id="cell55"></div>
+      <div class="cell" id="cell56"></div>
+      <div class="cell" id="cell57"></div>
+      <div class="cell" id="cell58"></div>
+      <div class="cell" id="cell59"></div>
+    </div>
+    <div class="row">
+      <div class="cell" id="cell60"></div>
+      <div class="cell" id="cell61"></div>
+      <div class="cell" id="cell62"></div>
+      <div class="cell" id="cell63"></div>
+      <div class="cell" id="cell64"></div>
+      <div class="cell" id="cell65"></div>
+      <div class="cell" id="cell66"></div>
+      <div class="cell" id="cell67"></div>
+      <div class="cell" id="cell68"></div>
+      <div class="cell" id="cell69"></div>
+    </div>
+    <div class="row">
+      <div class="cell" id="cell70"></div>
+      <div class="cell" id="cell71"></div>
+      <div class="cell" id="cell72"></div>
+      <div class="cell" id="cell73"></div>
+      <div class="cell" id="cell74"></div>
+      <div class="cell" id="cell75"></div>
+      <div class="cell" id="cell76"></div>
+      <div class="cell" id="cell77"></div>
+      <div class="cell" id="cell78"></div>
+      <div class="cell" id="cell79"></div>
+    </div>
+    <div class="row">
+      <div class="cell" id="cell80"></div>
+      <div class="cell" id="cell81"></div>
+      <div class="cell" id="cell82"></div>
+      <div class="cell" id="cell83"></div>
+      <div class="cell" id="cell84"></div>
+      <div class="cell" id="cell85"></div>
+      <div class="cell" id="cell86"></div>
+      <div class="cell" id="cell87"></div>
+      <div class="cell" id="cell88"></div>
+      <div class="cell" id="cell89"></div>
+    </div>
+    <div class="row">
+      <div class="cell" id="cell90"></div>
+      <div class="cell" id="cell91"></div>
+      <div class="cell" id="cell92"></div>
+      <div class="cell" id="cell93"></div>
+      <div class="cell" id="cell94"></div>
+      <div class="cell" id="cell95"></div>
+      <div class="cell" id="cell96"></div>
+      <div class="cell" id="cell97"></div>
+      <div class="cell" id="cell98"></div>
+      <div class="cell" id="cell99"></div>
+    </div>
+</div>
+
+  <div id='rightpanel'>
+    <p id='hitsleft'> hits left: 40</p>
+  </div>
+
+
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+        <script type="text/javascript" src="app2.js"></script>
+</html>
