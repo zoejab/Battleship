@@ -27,13 +27,6 @@ body {
 #rightpanel {
   margin-top: 95px;
 }
-/*how do i get the hits left to go up?*/
-/*#rightpanel {
-  position: absolute;
-  right: 0px;
-  margin-top: 75px;
-  width: 25%;
-}*/
 
 .row {
   float:left;
@@ -122,7 +115,3 @@ h3 {
 .button:hover {
   background-color: grey;
 }
-
-/*#boat {
-  width: 50%;
-}*/

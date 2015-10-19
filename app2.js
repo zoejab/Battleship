@@ -1,12 +1,17 @@
+/////////////////////
+///Zoe Jablow////////
+//Battleship Game////
+////////////////////
+
 console.log('battleship loaded');
 $(document).ready(function(){
 
 var clickEvent = function(e) {
-    //send throuhg makePlay
-    // console.log(e.target);
+
+    //sends through makePlay function
     game.board.makePlay(e.target);
 
-    //loop over boats.sunk. if it is equal to true then alert that they sunk the boat
+    //check if each boat is sunk
     var airSunk = aircraft.checkSunk();
     var patrolSunk = patrol.checkSunk();
     var battleshipSunk = battleship.checkSunk();
@@ -23,8 +28,8 @@ var clickEvent = function(e) {
 
     //test if game is over or not.
     game.isOver();
+    //if over tell the player they won or lost
     game.overMessage();
-
 };
 
 //////////////////////
@@ -44,8 +49,6 @@ var Boats = function(name, location) {
         }
         this.sunk = true;
     };
-    //   //if all locations are hit then turn sunk to true;
-    //
 };
 
 //created boat objects for each ship
@@ -69,6 +72,7 @@ var Board = function() {
 		this.guesses = 0;
     this.gameOver = false;
 
+    //sets up the board by placing the boats
 		this.setUp = function() {
 			for(var i = 0; i < boatArray.length; i++) {
 				for(var j = 0; j < boatArray[i].location.length; j++) {
@@ -83,12 +87,9 @@ var Board = function() {
 			this.guesses = 40;
 		};
 
-
-		//split on string cell and that will give you array of the id numbers
 		this.makePlay = function(cellClicked) {
       //splits the cell ids into numbers to compare in the for loop below
       var cellIdAsNumber = parseInt(cellClicked.getAttribute('id').split('cell')[1]);
-
       //if above is equal to the locations by looping over boat then turn to true
       for (var i = 0; i < boatArray.length; i++) {
        for (var j = 0; j < boatArray[i].location.length; j++) {
@@ -101,24 +102,23 @@ var Board = function() {
 				cellClicked.innerHTML = "<img src='images/explode.png' id='explode'>";
 				cellClicked.style.backgroundColor = 'blue';
 				cellClicked.setAttribute('class', 'cell filled hit');
+
+      //adds cannon sound effect
+        var cannon = new Audio("  http://www.wavsource.com/snds_2015-10-18_3983753680792964/sfx/cannon_x.wav");
+        cannon.play();
 			}
+
 			//puts blue background when clicked
 			else {
 				cellClicked.style.backgroundColor = 'blue';
 			}
-			//inner html needs to be equal to 'hits' + this.hitsLeft
+
+			//changes number of hits left and removes click event;
 			this.guesses -= 1;
 			var hitsLeft2 = document.getElementById('hitsleft');
 			hitsLeft2.innerHTML = 'hits left: ' + this.guesses;
 			cellClicked.removeEventListener('click', clickEvent);
-			console.log(this);
 		};
-
-
-		this.checkWin = function() {
-
-    };
-
 };
 
 //////////////////////
@@ -145,7 +145,7 @@ play: function() {
 },
 
 isOver: function() {
-
+  //if all boats are sunk then game is over
   for (var i = 0; i < boatArray.length; i++) {
     if(boatArray[i].sunk !== true) {
       return false;
@@ -157,30 +157,34 @@ isOver: function() {
 overMessage: function() {
   //if you run out of hits then alerts you game over.
   if (this.board.guesses === 0) {
-
+    //you lose card
     $('#center').append($("<p id='lose'> You Lose! </p>"));
+    $('#lose').css({opacity: 0});
+    $('#lose').animate({opacity: 1}, 500 );
     //play again button
     $('#center').append($("<a> Play Again </a>").addClass('button').attr('href', '#'));
+    $('.button').css({opacity: 0});
+    $('.button').animate({opacity: 1}, 500 );
+    //play again button event clicker
     var buttonLose = $('.button').click(function() {
-
       window.location.reload();
       });
     }
-  //loop over boats array - if all sunk = true then game ends and you win.
+
+    //if game is over and you won then you get the win card
   if(this.board.gameOver === true) {
     var winBanner = $('#center').append($("<p id='win'> You Win! </p>"));
+    $('#win').css({opacity: 0});
+    $('#win').animate({opacity: 1}, 500 );
 
     //play again button
     $('#center').append($("<a> Play Again </a>").addClass('button').attr('href', '#'));
+    $('.button').css({opacity: 0});
+    $('.button').animate({opacity: 1}, 500 );
     var buttonWin = $('.button').click(function() {
-
       window.location.reload();
       });
-
-}
-},
-
-};
+}},};
 
 window.onload = function() {
     game.makeBoard();
