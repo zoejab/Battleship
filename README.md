@@ -1,6 +1,9 @@
 # Battleship
 Battleship Javascript Game
 
+To play the game please visit the link below:
+http://author-calendar-54475.bitballoon.com/
+
 Made for project in General Assembly Web Development Immersive course.
 Includes javascript, jquery, html, & css.
 
