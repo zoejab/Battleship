@@ -10,10 +10,6 @@ body {
 #center {
     width: 43%;
     float: left;
-    background-image: url('http://i62.tinypic.com/11wc70m.png');
-    background-repeat: no-repeat;
-    background-position:  36%;
-    position: relative;
 }
 
 #leftpanel {
